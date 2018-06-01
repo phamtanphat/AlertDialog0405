@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView txtThongbao;
@@ -24,29 +26,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final AlertDialog.Builder hopthoai = new AlertDialog.Builder(MainActivity.this);
-                hopthoai.setTitle("Ban co muon xoa khong?");
-                hopthoai.setMessage("Xac nhan ben duoi");
+
+
                 hopthoai.setIcon(R.mipmap.ic_launcher);
 
-                hopthoai.setPositiveButton("Co", new DialogInterface.OnClickListener() {
+                final String[] mangtenconvat = {"Con meo" , "Con cho" , "Con heo"};
+
+                hopthoai.setSingleChoiceItems(mangtenconvat, 0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                hopthoai.setNegativeButton("Khong", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "Ban da chon khong", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                hopthoai.setNeutralButton("Huy", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "Ban da chon huy!!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, mangtenconvat[which], Toast.LENGTH_SHORT).show();
                     }
                 });
                 hopthoai.show();
+//                hopthoai.setPositiveButton("Co", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//                hopthoai.setNegativeButton("Khong", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(MainActivity.this, "Ban da chon khong", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                hopthoai.setNeutralButton("Huy", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(MainActivity.this, "Ban da chon huy!!!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                hopthoai.show();
             }
         });
     }
