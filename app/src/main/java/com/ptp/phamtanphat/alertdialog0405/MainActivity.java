@@ -26,15 +26,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final AlertDialog.Builder hopthoai = new AlertDialog.Builder(MainActivity.this);
-
-
                 hopthoai.setIcon(R.mipmap.ic_launcher);
 
-                final String[] mangtenconvat = {"Con meo" , "Con cho" , "Con heo"};
+                final CharSequence[] mangtenconvat = {"Con meo" , "Con cho" , "Con heo"};
+                boolean[] mangchecked = {false , false , false};
 
-                hopthoai.setSingleChoiceItems(mangtenconvat, 0, new DialogInterface.OnClickListener() {
+//                hopthoai.setSingleChoiceItems(mangtenconvat, 0, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(MainActivity.this, mangtenconvat[which], Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+                hopthoai.setMultiChoiceItems(mangtenconvat, mangchecked, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                         Toast.makeText(MainActivity.this, mangtenconvat[which], Toast.LENGTH_SHORT).show();
                     }
                 });
